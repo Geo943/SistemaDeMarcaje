@@ -57,10 +57,24 @@ Cambio de ip estatica en archivo /etc/rc.conf (ip 1.30 para server app)
       
         include "vdomains/*.conf";
         
-   recargar servico
+    recargar servico
    
     service nginx reload
-
+  
+  Instalacion/configuración de php, composer
+    
+    pkg install php73
+    
+    pkg install php74-composer-1.10.26 php74-composer2-2.3.7
+    
+  Instalación/configuración de git
+  
+    sudo pkg install git
+    
+    git config --global user.name "nombre"
+    
+    git config --global user.email "email@"
+    
 # Instalación en BD UbuntuServer (192.168.1.22)
 
   Creacion de usuario dev pass: dev grupo sudo 
