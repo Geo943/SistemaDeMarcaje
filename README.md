@@ -7,13 +7,14 @@ Proyecto 1, Sistema de marcaje web que esta conformado por el frontend  Angular 
 --instalacion y configuración de nginx
 
 Creacin de usuario dev
-  adduser dev pass: dev grupo wheel
+
+    adduser dev pass: dev grupo wheel
   
 Configuración SSH
 
 Cambio de ip estatica en archivo /etc/rc.conf (ip 1.30 para server app)
    
-   ifconfig_vmx0="inet 192.168.1.30 netmask 255.255.252.0"
+    ifconfig_vmx0="inet 192.168.1.30 netmask 255.255.252.0"
    
     defaultrouter="192.168.1.30"
     
