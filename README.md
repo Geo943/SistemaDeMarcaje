@@ -100,6 +100,15 @@ Cambio de ip estatica en archivo /etc/rc.conf (ip 1.30 para server app)
     FLUSH PRIVILEGES;
   
   
+---------------------------------------------------------Diagramas de Flujo-----------------------------------------------------------------------------------------
+  //Administrador
   
+  ![Sistema de Marcaje web drawio](https://user-images.githubusercontent.com/70043963/185447897-14996ff7-2278-409b-a38f-4696456971bb.png)
   
+ ---------------------------------------------------------Diagramas de Flujo-----------------------------------------------------------------------------------------//Usuario
+ 
+  ![usuario drawio](https://user-images.githubusercontent.com/70043963/185448401-bc9ea5b7-c23a-4cb1-bc55-37f7863e7048.png)
   
+  -------------------------------------------------------Diagrama BD-----------------------------------------------
+  
+![digramaBDMarcaje](https://user-images.githubusercontent.com/99605908/186066178-790cb275-b83a-4b8f-a2ed-4b0929141517.png)
