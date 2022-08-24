@@ -13,17 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('marcacions', function (Blueprint $table) {
-            $table->id('id_marcaje');
-            $table->bigInteger('id_empleado')->unsigned();
-            $table->date('fecha');
-            $table->time('hora');
+        Schema::create('tipo_usuarios', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->bigIncrements('id');
+            $table->string('nombre_tipo');
             $table->timestamps();
-
-            $table->foreign('id_empleado')
-                ->references('id_empleado')
-                ->on('empleados')
-                ->onDelete('cascade');
         });
     }
 
@@ -34,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marcacions');
+        Schema::dropIfExists('tipo_usuarios');
     }
 };

@@ -73,25 +73,31 @@ class TipoUsuarioController extends Controller
      */
     public function update(Request $request)
     {
-        // $tipo_usuario = Tipo_usuario::findOrFail($request->id);
-        // $tipo_usuario->nombre_tipo= $request->nombre_tipo;
+        $tipo_usuario = Tipo_usuario::findOrFail($request->id);
+        $tipo_usuario->nombre_tipo= $request->nombre_tipo;
 
-        // $tipo_usuario->save();
-        // return $tipo_usuario;
+        $tipo_usuario->save();
+        return $tipo_usuario;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * 
      * @param  \App\Models\Tipo_usuario $tipo_usuario
      * @return \Illuminate\Http\Response
      * @param  \Illuminate\Http\Response $request
-     * 
      */
     public function destroy(Request $request)
     {
+        print ' <---------------------------> ';
+
+        $datos = $request->id;
+
+        print $datos;
+        print ' <---------------------------> ';
+
         $tipo_usuario = Tipo_usuario::destroy($request->id);
+
         return $tipo_usuario;
     }
 }

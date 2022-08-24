@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Empleado;
 
 class EmpleadoController extends Controller
 {
@@ -13,7 +14,8 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        $empleado = Empleado::all();
+        return $empleado;
     }
 
     /**
@@ -34,7 +36,17 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empleado = new Empleado();
+        $empleado->nombre= $request->nombre;
+        $empleado->apellido= $request->apellido;
+        $empleado->dpi= $request->dpi;
+        $empleado->id_tipo_usuario= $request->id_tipo_usuario;
+        $empleado->id_departamento= $request->id_departamento;
+        $empleado->fecha_inicio_labores= $request->fecha_inicio_labores;
+        $empleado->fecha_nacimiento= $request->fecha_nacimiento;
+
+
+        $empleado->save();
     }
 
     /**
@@ -68,7 +80,17 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $empleado = Empleado::findOrFail($request->id);
+        $empleado->nombre= $request->nombre;
+        $empleado->apellido= $request->apellido;
+        $empleado->dpi= $request->dpi;
+        $empleado->id_tipo_usuario= $request->id_tipo_usuario;
+        $empleado->id_departamento= $request->id_departamento;
+        $empleado->fecha_inicio_labores= $request->fecha_inicio_labores;
+        $empleado->fecha_nacimiento= $request->fecha_nacimiento;
+
+        $empleado->save();
+        return $empleado;
     }
 
     /**
@@ -77,8 +99,10 @@ class EmpleadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $empleado = Empleado::destroy($request->id);
+
+        return $empleado;
     }
 }
