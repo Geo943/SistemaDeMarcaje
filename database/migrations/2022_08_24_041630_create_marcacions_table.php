@@ -13,13 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_usuarios', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->bigIncrements('id_tipo_usuario');
-            $table->string('nombre_tipo');
+        Schema::create('marcacions', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('id_empleado')->unsigned();
+            $table->date('fecha');
+            $table->time('hora');
             $table->timestamps();
 
-            
+            $table->foreign('id_empleado')
+                ->references('id')
+                ->on('empleados')
+                ->onDelete('cascade');
         });
     }
 
@@ -30,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_usuarios');
+        Schema::dropIfExists('marcacions');
     }
 };

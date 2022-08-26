@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Marcacion;
 
 class MarcacionController extends Controller
 {
@@ -13,7 +14,8 @@ class MarcacionController extends Controller
      */
     public function index()
     {
-        //
+        $marcaje = Marcacion::all();
+        return $marcaje;
     }
 
     /**
@@ -34,7 +36,12 @@ class MarcacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $marcaje = new Marcacion();
+        $marcaje->id_empleado= $request->id_empleado;
+        $marcaje->fecha= $request->fecha;
+        $marcaje->hora= $request->hora;
+
+        $marcaje->save();
     }
 
     /**
@@ -68,7 +75,13 @@ class MarcacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $marcaje = Marcacion::findOrFail($request->id);
+        $marcaje->id_empleado= $request->id_empleado;
+        $marcaje->fecha= $request->fecha;
+        $marcaje->hora= $request->hora;
+
+        $marcaje->save();
+        return $marcaje;
     }
 
     /**
@@ -77,8 +90,10 @@ class MarcacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $marcaje = Marcacion::destroy($request->id);
+
+        return $marcaje;
     }
 }

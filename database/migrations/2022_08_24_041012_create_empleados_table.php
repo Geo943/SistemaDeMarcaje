@@ -15,19 +15,26 @@ return new class extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->id('id_empleado');
+            $table->bigIncrements('id');
             $table->string('nombre', 100);
             $table->string('apellido', 100);
             $table->integer('dpi');
             $table->bigInteger('id_tipo_usuario')->unsigned();
+            $table->bigInteger('id_departamento')->unsigned();
             $table->date('fecha_inicio_labores');
-            $table->date('feche_nacimiento');
+            $table->date('fecha_nacimiento');
             $table->timestamps();
+            
 
 
             $table->foreign('id_tipo_usuario')
-                ->references('id_tipo_usuario')
+                ->references('id')
                 ->on('tipo_usuarios')
+                ->onDelete('cascade');
+
+            $table->foreign('id_departamento')
+                ->references('id')
+                ->on('departamentos')
                 ->onDelete('cascade');
         });
     }
