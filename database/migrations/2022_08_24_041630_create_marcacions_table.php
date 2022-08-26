@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('marcacions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('id_empleado')->unsigned();
+            $table->string('tipo');
             $table->date('fecha');
             $table->time('hora');
             $table->timestamps();
