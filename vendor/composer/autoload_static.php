@@ -536,6 +536,7 @@ class ComposerStaticInit600f7cad78957aefc8d89d015327e52d
         'App\\Models\\Marcacion' => __DIR__ . '/../..' . '/app/Models/Marcacion.php',
         'App\\Models\\Respuesta' => __DIR__ . '/../..' . '/app/Models/Respuesta.php',
         'App\\Models\\Tipo_usuario' => __DIR__ . '/../..' . '/app/Models/Tipo_usuario.php',
+        'App\\Models\\usuario' => __DIR__ . '/../..' . '/app/Models/usuario.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

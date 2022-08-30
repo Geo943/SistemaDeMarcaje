@@ -16,6 +16,10 @@ use App\Http\Controllers\TipoUsuarioController;
 */
 //RUTAS PARA TIPOS DE USUARIO
 
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
 Route::get('/tipo_usuarios', 'App\Http\Controllers\TipoUsuarioController@index');
 
 Route::post('/tipo_usuarios', 'App\Http\Controllers\TipoUsuarioController@store');
@@ -48,8 +52,20 @@ Route::delete('/empleados/{id}', 'App\Http\Controllers\EmpleadoController@destro
 
 Route::get('/marcacions', 'App\Http\Controllers\MarcacionController@index');
 
+Route::get('/marcacions/{id_empleado}', 'App\Http\Controllers\MarcacionController@marcajeUid');
+
 Route::post('/marcacions', 'App\Http\Controllers\MarcacionController@store');
 
 Route::put('/marcacions/{id}', 'App\Http\Controllers\MarcacionController@update');
 
 Route::delete('/marcacions/{id}', 'App\Http\Controllers\MarcacionController@destroy');
+
+//ruta de sesion 
+
+Route::post('/regisro', 'App\Http\Controllers\SessionsController@regisro');
+
+Route::post('/usuarios', 'App\Http\Controllers\SessionsController@login');
+
+Route::post('/perfil', 'App\Http\Controllers\SessionsController@perfil');
+
+Route::post('/logout', 'App\Http\Controllers\SessionsController@logout');

@@ -28,6 +28,7 @@ return array(
     'App\\Models\\Marcacion' => $baseDir . '/app/Models/Marcacion.php',
     'App\\Models\\Respuesta' => $baseDir . '/app/Models/Respuesta.php',
     'App\\Models\\Tipo_usuario' => $baseDir . '/app/Models/Tipo_usuario.php',
+    'App\\Models\\usuario' => $baseDir . '/app/Models/usuario.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

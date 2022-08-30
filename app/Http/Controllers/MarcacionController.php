@@ -16,7 +16,24 @@ class MarcacionController extends Controller
      */
     public function index()
     {
-        $marcaje = Marcacion::all();
+        $marcaje = Marcacion::orderBy('fecha','desc')->get();
+
+        return $marcaje;
+    }
+
+
+    /**
+     * Display a listing of the resource for id user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function marcajeUid($id_empleado)
+    {
+        print_r($id_empleado);
+        $marcaje = Marcacion::where('id_empleado', $id_empleado)
+                            ->orderBy('fecha','desc')
+                            ->get();                          
+
         return $marcaje;
     }
 
@@ -140,14 +157,6 @@ class MarcacionController extends Controller
 
         return $res;
 
-
-        /*
-        $marcaje = new Marcacion();
-        $marcaje->id_empleado= $request->id_empleado;
-        $marcaje->fecha= $request->fecha;
-        $marcaje->hora= $request->hora;
-
-        $marcaje->save(); */
     }
 
     /**
