@@ -20,7 +20,27 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/tipo_usuarios', 'App\Http\Controllers\TipoUsuarioController@index');
+
+
+//ruta de sesion 
+
+
+
+Route::post('/usuarios', 'App\Http\Controllers\SessionsController@login');
+
+
+
+Route::middleware('auth:sanctum')->group(function () {
+
+    Route::post('/regisro', 'App\Http\Controllers\SessionsController@regisro');
+
+    Route::post('/perfil', 'App\Http\Controllers\SessionsController@perfil');
+
+    Route::post('/logout', 'App\Http\Controllers\SessionsController@logout');
+
+    ///------------------------------------all routs
+
+    Route::get('/tipo_usuarios', 'App\Http\Controllers\TipoUsuarioController@index');
 
 Route::post('/tipo_usuarios', 'App\Http\Controllers\TipoUsuarioController@store');
 
@@ -59,13 +79,4 @@ Route::post('/marcacions', 'App\Http\Controllers\MarcacionController@store');
 Route::put('/marcacions/{id}', 'App\Http\Controllers\MarcacionController@update');
 
 Route::delete('/marcacions/{id}', 'App\Http\Controllers\MarcacionController@destroy');
-
-//ruta de sesion 
-
-Route::post('/regisro', 'App\Http\Controllers\SessionsController@regisro');
-
-Route::post('/usuarios', 'App\Http\Controllers\SessionsController@login');
-
-Route::post('/perfil', 'App\Http\Controllers\SessionsController@perfil');
-
-Route::post('/logout', 'App\Http\Controllers\SessionsController@logout');
+});
