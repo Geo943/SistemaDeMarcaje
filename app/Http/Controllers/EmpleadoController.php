@@ -40,7 +40,7 @@ class EmpleadoController extends Controller
         $empleado->nombre= $request->nombre;
         $empleado->apellido= $request->apellido;
         $empleado->dpi= $request->dpi;
-        $empleado->id_tipo_usuario= $request->id_tipo_usuario;
+        // $empleado->id_tipo_usuario= $request->id_tipo_usuario;
         $empleado->id_departamento= $request->id_departamento;
         $empleado->fecha_inicio_labores= $request->fecha_inicio_labores;
         $empleado->fecha_nacimiento= $request->fecha_nacimiento;
@@ -57,9 +57,14 @@ class EmpleadoController extends Controller
      */
     public function show($id)
     {
-        //
+        $empleado = Empleado::find($id);
+        return view('empleados.show', ['empleados'=>$empleado]);
     }
 
+    public function get($id){
+        $empleado = Empleado::find($id);
+        return response()->json($empleado, 200);
+      }
     /**
      * Show the form for editing the specified resource.
      *
@@ -84,7 +89,7 @@ class EmpleadoController extends Controller
         $empleado->nombre= $request->nombre;
         $empleado->apellido= $request->apellido;
         $empleado->dpi= $request->dpi;
-        $empleado->id_tipo_usuario= $request->id_tipo_usuario;
+        // $empleado->id_tipo_usuario= $request->id_tipo_usuario;
         $empleado->id_departamento= $request->id_departamento;
         $empleado->fecha_inicio_labores= $request->fecha_inicio_labores;
         $empleado->fecha_nacimiento= $request->fecha_nacimiento;
