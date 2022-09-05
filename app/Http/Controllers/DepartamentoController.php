@@ -34,7 +34,17 @@ class DepartamentoController extends Controller
 
         $departamento->save();
     }
+    
+    public function show($id)
+    {
+        $departamento = Departamento::find($id);
+        return view('departamento.show', ['departamento'=>$departamento]);
+    }
 
+    public function get($id){
+        $departamento = Departamento::find($id);
+        return response()->json($departamento, 200);
+      }
 
     /**
      * Update the specified resource in storage.

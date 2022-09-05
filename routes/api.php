@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TipoUsuarioController;
+use App\Http\Controllers\SessionsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,17 +25,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 //ruta de sesion 
-Route::get('/marcacionsjoin', 'App\Http\Controllers\MarcacionController@marcajehistorial');
+//Route::get('/marcacionsjoin', 'App\Http\Controllers\MarcacionController@marcajehistorial');
 
 
 Route::post('/usuarios', 'App\Http\Controllers\SessionsController@login');
+Route::post('/registro', 'App\Http\Controllers\SessionsController@regisro');
 
 Route::post('/tipo_usuarios', 'App\Http\Controllers\TipoUsuarioController@store');
 
 
 Route::middleware('auth:sanctum')->group(function () {
 
-    Route::post('/regisro', 'App\Http\Controllers\SessionsController@regisro');
+    // Route::post('/registro', 'App\Http\Controllers\SessionsController@regisro');
 
     Route::post('/perfil', 'App\Http\Controllers\SessionsController@perfil');
 
@@ -43,43 +46,51 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/tipo_usuarios', 'App\Http\Controllers\TipoUsuarioController@index');
 
+    Route::get('/tipo_usuarios/{id}', 'App\Http\Controllers\TipoUsuarioController@get');
 
+    Route::post('/tipo_usuarios', 'App\Http\Controllers\TipoUsuarioController@store');
 
-Route::put('/tipo_usuarios/{id}', 'App\Http\Controllers\TipoUsuarioController@update');
+    Route::put('/tipo_usuarios/{id}', 'App\Http\Controllers\TipoUsuarioController@update');
 
-Route::delete('/tipo_usuarios/{id}', 'App\Http\Controllers\TipoUsuarioController@destroy');
+    Route::delete('/tipo_usuarios/{id}', 'App\Http\Controllers\TipoUsuarioController@destroy');
 
-//RUTAS PARA DEPARTAMENTO
+    //RUTAS PARA DEPARTAMENTO
 
-Route::get('/departamentos', 'App\Http\Controllers\DepartamentoController@index');
+    Route::get('/departamentos', 'App\Http\Controllers\DepartamentoController@index');
 
-Route::post('/departamentos', 'App\Http\Controllers\DepartamentoController@store');
+    Route::get('/departamentos/{id}', 'App\Http\Controllers\DepartamentoController@get');
 
-Route::put('/departamentos/{id}', 'App\Http\Controllers\DepartamentoController@update');
+    Route::post('/departamentos', 'App\Http\Controllers\DepartamentoController@store');
 
-Route::delete('/departamentos/{id}', 'App\Http\Controllers\DepartamentoController@destroy');
+    Route::put('/departamentos/{id}', 'App\Http\Controllers\DepartamentoController@update');
 
-//RUTA DE EMPLEADOS
+    Route::delete('/departamentos/{id}', 'App\Http\Controllers\DepartamentoController@destroy');
 
-Route::get('/empleados', 'App\Http\Controllers\EmpleadoController@index');
+    //RUTA DE EMPLEADOS
 
-Route::post('/empleados', 'App\Http\Controllers\EmpleadoController@store');
+    Route::get('/empleados', 'App\Http\Controllers\EmpleadoController@index');
 
-Route::put('/empleados/{id}', 'App\Http\Controllers\EmpleadoController@update');
+    Route::get('/empleados/{id}', 'App\Http\Controllers\EmpleadoController@get');
 
-Route::delete('/empleados/{id}', 'App\Http\Controllers\EmpleadoController@destroy');
+    Route::post('/empleados', 'App\Http\Controllers\EmpleadoController@store');
 
-//RUTA DE MARCAJE
+    Route::put('/empleados/{id}', 'App\Http\Controllers\EmpleadoController@update');
 
-Route::get('/marcacions', 'App\Http\Controllers\MarcacionController@index');
+    Route::delete('/empleados/{id}', 'App\Http\Controllers\EmpleadoController@destroy');
 
-Route::get('/marcacions/{id_empleado}', 'App\Http\Controllers\MarcacionController@marcajeUid');
+    //RUTA DE MARCAJE
 
-Route::post('/marcacions', 'App\Http\Controllers\MarcacionController@store');
+    Route::get('/marcacions', 'App\Http\Controllers\MarcacionController@index');
 
-Route::put('/marcacions/{id}', 'App\Http\Controllers\MarcacionController@update');
+    Route::get('/marcacions/{id_empleado}', 'App\Http\Controllers\MarcacionController@marcajeUid');
 
-Route::delete('/marcacions/{id}', 'App\Http\Controllers\MarcacionController@destroy');
+    Route::post('/marcacions', 'App\Http\Controllers\MarcacionController@store');
 
-//Route::get('/marcacionsjoin', 'App\Http\Controllers\MarcacionController@marcajehistorial');
+    Route::put('/marcacions/{id}', 'App\Http\Controllers\MarcacionController@update');
+
+    Route::delete('/marcacions/{id}', 'App\Http\Controllers\MarcacionController@destroy');
+  
+
+   Route::get('/marcacionsjoin', 'App\Http\Controllers\MarcacionController@marcajehistorial');
+
 });

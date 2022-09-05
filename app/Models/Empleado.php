@@ -9,6 +9,9 @@ class Empleado extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id_empleado','nombre', 'apellido', 'dpi', 'id_tipo_usuario', 'id_departamento','id_usuario', 'fecha_inicio_labores', 'fecha_nacimiento'
+        'id_empleado','nombre', 'apellido', 'dpi', 'id_departamento','id_usuario', 'fecha_inicio_labores', 'fecha_nacimiento'
     ];
+    // protected $fillable = [
+    //     'id_empleado','nombre', 'apellido', 'dpi', 'id_tipo_usuario', 'id_departamento','id_usuario', 'fecha_inicio_labores', 'fecha_nacimiento'
+    // ];
 }

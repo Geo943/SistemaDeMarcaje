@@ -48,20 +48,9 @@ class TipoUsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    public function get($id){
+        $tipo_usuario = Tipo_usuario::find($id);
+        return response()->json($tipo_usuario, 200);
     }
 
     /**
