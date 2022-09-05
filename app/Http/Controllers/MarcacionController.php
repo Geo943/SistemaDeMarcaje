@@ -37,6 +37,22 @@ class MarcacionController extends Controller
         return $marcaje;
     }
 
+
+
+    //*******join 
+    public function marcajehistorial()
+    {
+        $marcaje = Marcacion::join('empleados','empleados.id',"=","marcacions.id_empleado" )
+                            ->select('id_empleado','nombre','apellido','tipo','fecha','hora')
+                            ->orderBy('fecha','desc')
+                            ->get();   
+                            //print_r($marcaje);                       
+
+        return $marcaje;
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *

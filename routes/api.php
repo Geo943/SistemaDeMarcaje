@@ -23,11 +23,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 //ruta de sesion 
-
+Route::get('/marcacionsjoin', 'App\Http\Controllers\MarcacionController@marcajehistorial');
 
 
 Route::post('/usuarios', 'App\Http\Controllers\SessionsController@login');
 
+Route::post('/tipo_usuarios', 'App\Http\Controllers\TipoUsuarioController@store');
 
 
 Route::middleware('auth:sanctum')->group(function () {
@@ -42,7 +43,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/tipo_usuarios', 'App\Http\Controllers\TipoUsuarioController@index');
 
-Route::post('/tipo_usuarios', 'App\Http\Controllers\TipoUsuarioController@store');
+
 
 Route::put('/tipo_usuarios/{id}', 'App\Http\Controllers\TipoUsuarioController@update');
 
@@ -79,4 +80,6 @@ Route::post('/marcacions', 'App\Http\Controllers\MarcacionController@store');
 Route::put('/marcacions/{id}', 'App\Http\Controllers\MarcacionController@update');
 
 Route::delete('/marcacions/{id}', 'App\Http\Controllers\MarcacionController@destroy');
+
+//Route::get('/marcacionsjoin', 'App\Http\Controllers\MarcacionController@marcajehistorial');
 });
