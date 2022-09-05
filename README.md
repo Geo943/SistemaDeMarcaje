@@ -112,7 +112,8 @@ Cambio de ip estatica en archivo /etc/rc.conf (ip 1.30 para server app)
   -------------------------------------------------------Diagrama BD-----------------------------------------------
   
 
-![BD](https://user-images.githubusercontent.com/99605908/186573570-73cda1b9-a468-4d4e-a219-e373e17f7085.png)
+
+![diagrama de base de datos](https://user-images.githubusercontent.com/70043963/188394122-f8867405-86bf-47cc-8e45-1caa1b11fc0a.PNG)
 
   
   
