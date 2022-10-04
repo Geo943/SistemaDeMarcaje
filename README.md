@@ -119,6 +119,8 @@ Cambio de ip estatica en archivo /etc/rc.conf (ip 1.30 para server app)
 
 ------------------------------------------------------Instalacion de PostgresSQL------------------------------------
 sisteme e instalacion Ubuntu server 20.4
+
+
 ![image](https://user-images.githubusercontent.com/70043963/193724114-ad8b5bc8-4fae-4fd5-b1e0-ae21f035c088.png)
 
 sudo apt install postgresql postgresql-contrib
